@@ -1,3 +1,4 @@
+import { Course } from './../models/course';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
 
-  constructor() { }
+  courses: Course[] = [
+    {_id: '1', name : 'Angular', category: 'front-end'}
+  ];
+  displayedColumns: string[] = ['name','category'];
+
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
