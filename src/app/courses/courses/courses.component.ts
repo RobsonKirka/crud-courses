@@ -1,5 +1,7 @@
+import { CoursesService } from './../services/courses.service';
 import { Course } from './../models/course';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-courses',
@@ -8,13 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
 
-  courses: Course[] = [
-    {_id: '1', name : 'Angular', category: 'front-end'}
-  ];
+  courses: Course[] = [];
   displayedColumns: string[] = ['name','category'];
+  //courseService: CoursesService;
 
-
-  constructor() {
+  // Injecao de dependencias
+  constructor(private coursesServices: CoursesService) {
+    //this.courseService = new CoursesService();
+    this.courses = this.coursesServices.listAllCourses();
   }
 
   ngOnInit(): void {
