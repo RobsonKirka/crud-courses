@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Course } from './../models/course';
 import { Injectable } from '@angular/core';
 
@@ -6,13 +7,13 @@ import { Injectable } from '@angular/core';
 })
 export class CoursesService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
+  private readonly API = 'assets/courses.json'
 
-  listAllCourses() : Course[] {
+  listAllCourses(){
     return [
-      {_id: '1', name : 'Angular', category: 'front-end'}
+      this.httpClient.get<Course[]>(this.API)
     ]
   }
-
 }
