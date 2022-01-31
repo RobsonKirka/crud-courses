@@ -11,14 +11,14 @@ import { Observable } from 'rxjs';
 })
 export class CoursesComponent implements OnInit {
 
-  courses:Observable<Course[]>;
+  courses$:Observable<Course[]>;
   displayedColumns: string[] = ['name','category'];
   //courseService: CoursesService;
 
   // Injecao de dependencias
   constructor(private coursesServices: CoursesService) {
     //this.courseService = new CoursesService();
-    this.courses = this.coursesServices.listAllCourses();
+    this.courses$ = this.coursesServices.listAllCourses();
   }
 
   ngOnInit(): void {
