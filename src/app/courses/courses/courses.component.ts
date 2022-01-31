@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class CoursesComponent implements OnInit {
 
-  courses: Observable<Course[]>[];
+  courses:Observable<Course[]>;
   displayedColumns: string[] = ['name','category'];
   //courseService: CoursesService;
 

@@ -9,11 +9,9 @@ export class CoursesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private readonly API = 'assets/courses.json'
+  private readonly API = "/assets/courses.json"
 
   listAllCourses(){
-    return [
-      this.httpClient.get<Course[]>(this.API)
-    ]
+    return this.httpClient.get<Course[]>(this.API)
   }
 }
